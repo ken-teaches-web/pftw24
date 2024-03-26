@@ -8,7 +8,7 @@ import copy from "../assets/icons/bxs_copy_icon.svg";
 export default function ItemCard({
     commander,
     colors,
-    // theme,
+    theme,
     hasWon,
     mainGroup,
     image,

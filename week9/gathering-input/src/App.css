@@ -8,3 +8,12 @@
 label, input {
   margin: 0 5px;
 }
+label.required:before {
+  color: red;
+  content: "* ";
+}
+.error {
+  color: red;
+  font-size: 12px;
+  line-height: 1;
+}

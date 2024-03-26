@@ -3,8 +3,8 @@ import { useState } from 'react'
 import './App.css';
 import Masthead from './Masthead/Masthead';
 import ItemCard from './ItemCard/ItemCard';
-import {nanoid} from "nanoid";
 import { NewCommanderForm } from './NewCommanderForm/NewCommanderForm';
+import {nanoid} from "nanoid";
 
 function App() {
   const [decks, setDecks] = useState([
@@ -15,8 +15,7 @@ function App() {
       hasWon: true,
       mainGroup: true,
       image: "./alela-cunning-conqueror.png",
-      id: "1",
-      format: "casual"
+      id: "1"
     },
     {
       commander: "Kaust, Eyes of the Glade",
@@ -25,8 +24,7 @@ function App() {
       hasWon: false,
       mainGroup: false,
       image: "./kaust-eyes-of-the-glade.png",
-      id: "2",
-      format: "casual"
+      id: "2"
     },
     {
       commander: "Esix, Fractal Bloom",
@@ -35,8 +33,7 @@ function App() {
       hasWon: true,
       mainGroup: true,
       image: "./esix-fractal-bloom.png",
-      id: "3",
-      format: "casual"
+      id: "3"
     },
     {
       commander: "Muldrotha, The Grave Tide",
@@ -45,8 +42,7 @@ function App() {
       hasWon: false,
       mainGroup: false,
       image: "./muldrotha-the-gravetide.png",
-      id: "4",
-      format: "casual"
+      id: "4"
     },
     {
       commander: "Braids, Arisen Nightmare",
@@ -55,8 +51,7 @@ function App() {
       hasWon: true,
       mainGroup: true,
       image: "./braids-arisen-nightmare.png",
-      id: "5",
-      format: "casual"
+      id: "5"
     },
     {
       commander: "Breya, Etherium Shaper",
@@ -65,8 +60,7 @@ function App() {
       hasWon: true,
       mainGroup: true,
       image: "./breya-etherium-shaper.png",
-      id: "6",
-      format: "casual"
+      id: "6"
     },
     {
       commander: "Freyalise, Lloanowar's Fury",
@@ -75,8 +69,7 @@ function App() {
       hasWon: false,
       mainGroup: false,
       image: "./freyalise-llanowar-s-fury.png",
-      id: "7",
-      format: "casual"
+      id: "7"
     }
   ]);
 function deleteCard(id) {
@@ -91,13 +84,16 @@ function duplicateCard(id) {
   const matchingDeck = decks.find((commanderDeck) => {
     return commanderDeck.id === id
   });
-  const updatedDeck = {...matchingDeck, id: nanoid()};
+  const updatedDeck = {...matchingDeck, id: nanoid()}
   setDecks([...decks, updatedDeck]);
 }
-function addCard(newCardObject) {
-  setDecks((previousDecks) => {
-    return [...previousDecks, newCardObject];
-  })
+
+function addCard(newCard) {
+  const cardWithId = {
+    ...newCard,
+    id: nanoid()
+  }
+  setDecks([...decks, cardWithId])
 }
 
 
